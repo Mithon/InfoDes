@@ -9,9 +9,7 @@ $(function(){
 
 
     $('body').fadeOut('0');
-
-	$('#hoods').mixItUp();
-
+    $('#hoods').mixItUp();
     $('body').fadeIn('slow');
 });
 
