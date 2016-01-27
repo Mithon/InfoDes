@@ -2,11 +2,45 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Hoods</title>
+        <link rel="stylesheet" href="css/styles.css"/>
+        <script>
+          (function(d) {
+            var config = {
+              kitId: 'mty0wup',
+              scriptTimeout: 3000,
+              async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+        </script>
     </head>
     <body>
 
+        <nav>
+            <h1>(Neighbour)Hoods</h1>
+            <p>Sort:</p>
+            <div class="controls">
+            <span class="sort" data-sort="number:asc">Number </span>
+            <span class="divider">||</span>
+            <span class="sort" data-sort="name:asc"> Name </span>
+            <span class="divider">||</span>
+            <span class="sort" data-sort="equity:asc"> Equity Score </span>
+            <span class="divider">||</span>
+            <span class="sort" data-sort="population:asc"> Population </span>
+            <span class="divider">||</span>
+            <span class="sort" data-sort="age:asc"> Age </span>
 
+            </div>
+        </nav>
+
+        <div id="hoods">
+        </div>
+
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/jquery.mixitup.js"></script>
         <script src="js/main.js"></script>
+
+
     </body>
 </html>
