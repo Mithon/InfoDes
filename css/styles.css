@@ -53,7 +53,7 @@ body {
 
 section {
     width: 50%;
-    float: left;
+    display: inline-block;
 }
 
 .top-section {

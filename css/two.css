@@ -3,3 +3,36 @@ h2 {
     font-weight: bold;
     font-size: 2em;
 }
+
+.number {
+    color: #ccc;
+}
+
+.heading {
+    color: #999;
+}
+
+.pop-breakdown {
+
+}
+
+.hood > section {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    display: block;
+    width: 100%;
+    max-width: 150px;
+}
+
+.hood > .left-section {
+    background-color: #eee;
+    margin: 10px 0;
+}
+
+.hood {
+    min-width: 200px;
+}
+
+.age-section {
+    margin-left: 0;
+}
