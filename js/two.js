@@ -16,7 +16,7 @@ $(function(){
 for (var i in hoods) {
     hoodsContainer.innerHTML = hoodsContainer.innerHTML +
     '<div class="hood mix ' +
-    hoods[i].languages[0] + " " + hoods[i].languages[1] + " " + hoods[i].languages[2] +
+    hoods[i].languages[0] + " " + hoods[i].languages[1] + " " + hoods[i].languages[2] + " " + hoods[i].number +
     '"' +
     'data-number="' + hoods[i].number +
     '" data-name="' + hoods[i].name.charAt(0) +
@@ -46,4 +46,12 @@ for (var i in hoods) {
     hoods[i].seniors + '%' +
     '</p>' +
     '</section><section class="right-section"><p class="age-section">children</p><p class="age-section">youth</p><p class="age-section">working age</p><p class="age-section">seniors</p></section></div></section></div>';
+
+    var hoodID = "." + hoods[i].number;
+
+    if (hoods[i].equity >= 100)
+        $(hoodID).css("color", "green");
+
+    if (hoods[i].equity <= 40)
+        $(hoodID).css("color", "red");
 }
