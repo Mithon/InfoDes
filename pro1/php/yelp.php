@@ -136,7 +136,7 @@ function query_api($term, $location) {
     foreach ($ratings as $rating) {
         if ($rating > $max)
             $max = $rating;
-        if ($rating < $min && $rating != 0) 
+        if ($rating < $min && $rating != 0)
             $min = $rating;
         $total += $rating;
 
@@ -192,8 +192,6 @@ $term = $options['term'] = '';
 $location = $options['location'] = 'Steeles';
 
 //echo('<h1>' . $location . ': ' . $term . '</h1>');
-
-
 
 foreach ($hoods as $hood) {
     echo('<h2><span>' . $count. ',' . $hood . '</span>');

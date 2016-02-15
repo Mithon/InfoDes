@@ -5,14 +5,25 @@ var hoodsContainer = document.querySelector("#hoods");
 var overallMin = 100;
 
 for (var i in yelpScores) {
-    hoodsContainer.innerHTML = hoodsContainer.innerHTML + '<div class="item"><svg><circle cx="50%" cy="50%" r="5"></circle></div>';
     yelpScores[i].perTenThousand = assaults[i].perTenThousand;
     if (yelpScores[i].minRating < overallMin && yelpScores[i].minRating > 3)
         overallMin = yelpScores[i].minRating;
-    if (yelpScores[i].averageRating == null || yelpScores[i].averageRating == 0)
+    hoodsContainer.innerHTML = hoodsContainer.innerHTML + '<div class="item mix" ' +
+    'data-number="' + yelpScores[i].number +
+    '" data-name="' + yelpScores[i].name.charAt(0) +
+    '" data-yelp="' + yelpScores[i].averageRating +
+    //'" data-population="' + hoods[i].population +
+    '" data-assaults="' + yelpScores[i].perTenThousand +
+    '"><svg><circle cx="50%" cy="50%" r="5"></circle></div>';
+
+    //if (yelpScores[i].averageRating == null || yelpScores[i].averageRating == 0)
         //yelpScores[i].averageRating = 3.2;
-    console.log(overallMin);
 }
+
+$(function(){
+	$('#hoods').mixItUp();
+    console.log('penis');
+});
 
 var items = d3.select("#hoods").selectAll(".item").data(yelpScores);
 //var aItems = d3.select("#hoods").selectAll(".item").data(assaults);
@@ -20,7 +31,8 @@ var items = d3.select("#hoods").selectAll(".item").data(yelpScores);
 items.insert("h2").text(function(d) { return " " + d.name+ ""; });
 items.insert("h4").text(function(d) { return " " + d.number+ ""; });
 items.insert("p").text(function(d) { return "assaults:" + Math.floor(d.perTenThousand) + ""; });
-items.insert("p").text(function(d) { return "yelp:" + Math.floor(d.averageRating) + ""; });
+items.insert("p").text(function(d) { return "yelp:" + ((d.averageRating)+0).toFixed(2) + ""; });
+items.insert("p").text(function(d) { return "score:" + Math.floor(((Math.pow(5,(d.averageRating-overallMin))*10))-(d.perTenThousand)/10) + ""; });
 
 /*
 items.select("circle").style("opacity", function(d) {
@@ -30,13 +42,12 @@ items.select("circle").style("opacity", function(d) {
 */
 
 items.select("circle").attr("fill", function(d) {
-    console.log("name:" + d.name + " assaults:" + d.perTenThousand + " yelp:" + (d.averageRating));
+    //console.log("name:" + d.name + " assaults:" + d.perTenThousand + " yelp:" + (d.averageRating));
   return "hsl(" + (100-(8+(d.perTenThousand/2.6))) + ",100%,50%)";
 });
 
 items.selectAll("circle").attr("r", function(d){
-    console.log(Math.pow(2,(d.averageRating-overallMin)));
-    return Math.pow(5,(d.averageRating-overallMin))*10;
+    return Math.pow(7,(d.averageRating-overallMin))*14;
 });
 
 /*
